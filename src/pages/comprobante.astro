@@ -1,0 +1,71 @@
+---
+import MainLayout from "@/layouts/mainLayout.astro";
+import "src/styles/formularioPago.css";
+---
+
+<MainLayout>
+    <div class="container my-6">
+        <div class="box transaction-receipt" id="transactionReceipt">
+            <div class="has-text-centered mb-5">
+                <span class="icon has-text-success is-large">
+                    <i class="fas fa-check-circle fa-3x"></i>
+                </span>
+                <h1 class="title is-4 mt-4">TRANSACCIÓN EXITOSA</h1>
+            </div>
+
+            <div class="content">
+                <div class="is-flex is-justify-content-space-between mb-2">
+                    <span>Estado de transacción</span>
+                    <span>29 de Octubre</span>
+                </div>
+                <div class="is-flex is-justify-content-space-between mb-2">
+                    <span>Nombre del comercio</span>
+                    <span>Chapacos Proactivos</span>
+                </div>
+                <div class="is-flex is-justify-content-space-between mb-2">
+                    <span>Fecha de pago</span>
+                    <span>29 de Octubre</span>
+                </div>
+                <div class="is-flex is-justify-content-space-between mb-2">
+                    <span>Hora de pago</span>
+                    <span>9:42</span>
+                </div>
+                <div class="is-flex is-justify-content-space-between mb-2">
+                    <span>ID de la transacción</span>
+                    <span>#12345678910</span>
+                </div>
+                <div class="is-flex is-justify-content-space-between mb-2">
+                    <span>CUS</span>
+                    <span>123456789</span>
+                </div>
+                <hr>
+                <div class="mb-2">
+                    <span class="has-text-weight-bold">Concepto</span>
+                    <div class="mt-2">
+                        <p>Donativo</p>
+                    </div>
+                </div>
+                <div class="is-flex is-justify-content-space-between mb-2">
+                    <span>Método de pago</span>
+                    <span>Tarjeta de Credito</span>
+                </div>
+                <hr>
+                <div class="is-flex is-justify-content-space-between mb-2">
+                    <span>Costo subtotal</span>
+                    <span>$1000</span>
+                </div>
+                <div class="is-flex is-justify-content-space-between has-text-weight-bold">
+                    <span>Total</span>
+                    <span>$1000</span>
+                </div>
+            </div>
+
+            <div class="buttons is-centered mt-5">
+                <button class="button is-primary">Finalizar</button>
+                <button class="button is-link is-light">Descargar PDF</button>
+            </div>
+        </div>
+    </div>
+</MainLayout>
+<script src="/src/js/formularioPago.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>

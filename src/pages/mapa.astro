@@ -1,0 +1,103 @@
+---
+import MainLayout from "@/layouts/mainLayout.astro";
+import "src/styles/mapa.css";
+---
+
+<MainLayout>
+    <section class="hero is-fullheight">
+        <div class="hero-body">
+            <div class="container has-text-centered">
+                <h1 class="title1">Chapacos Proactivos</h1>
+                <h2 class="subtitle">Mira la calidad del aire en tu zona</h2>
+                <p class="mensaje">Revisa la calidad del aire según tu ubicación en todo el departamento de Tarija.</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="container">
+        <div class="columns is-centered">
+            <div class="column is-12">
+                <div class="box">
+                    <div id="map" class="map-container"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        import L from 'leaflet';
+    
+        // Inicializar el mapa
+        const map = L.map('map').setView([-21.53519499059125, -64.73218754059755], 8);
+    
+        // Añadir capa de OpenStreetMap
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '© OpenStreetMap contributors'
+        }).addTo(map);
+    
+        // Puntos de interés
+        const points = [
+            //Tarija
+            { name: 'Tarija', coords: [-21.53519499059125, -64.73218754059755], image: '/public/img/ImgMaps/Tarija.png', link: '/tarija' },
+            { name: 'San Lorenzo', coords: [-21.41709479198198, -64.74947010533849], image: '/public/img/ImgMaps/SanLorenzo.png', link: '/sanLorenzo' },
+            { name: 'Uriondo', coords: [-21.69554545317888, -64.65336571356846], image: '/public/img/ImgMaps/Uriondo.png', link: '/uriondo' },
+            { name: 'Bermejo', coords: [-22.731891974311143, -64.34281985444636], image: '/public/img/ImgMaps/Bermejo.png', link: '/bermejo' },
+            { name: 'Villa Montes', coords: [-21.26220481458456, -63.473683752129496], image: '/public/img/ImgMaps/VillaMontes.png', link: '/villaMontes' },
+            { name: 'El Puente', coords: [-21.239922274528787, -65.20432962287649], image: '/public/img/ImgMaps/ElPuente.png', link: '/elPuente' },
+            { name: 'Entre Ríos', coords: [-21.525812384285942, -64.17178753607368], image: '/public/img/ImgMaps/EntreRios.png', link: '/entreRios' },
+            { name: 'Carapari', coords: [-21.82810438940055, -63.7435163935483], image: '/public/img/ImgMaps/Carapari.png', link: '/carapari' },
+            { name: 'El Palmar', coords: [-21.87824634477943, -63.61462916511947], image: '/public/img/ImgMaps/ElPalmar.png', link: '/elPalmar' },
+            //Bolivia
+            { name: 'La Paz', coords: [-16.5000, -68.1193], image: '/public/img/ImgMaps/LaPaz.png', link: '/laPaz'},
+            { name: 'Cochabamba', coords: [-17.3662, -66.1575], image: '/public/img/ImgMaps/Cochabamba.png', link: '/cochabamba'},
+            { name: 'Santa Cruz', coords: [-17.7833, -63.1822], image: '/public/img/ImgMaps/Santa Cruz.png', link: '/santaCruz'},
+            { name: 'Oruro', coords: [-17.9700, -67.1167], image: '/public/img/ImgMaps/Oruro.png', link: '/oruro'},
+            { name: 'Beni', coords: [-14.8333, -64.9000], image: '/public/img/ImgMaps/Beni.png', link: '/beni'},
+            { name: 'Pando', coords: [-11.0667, -68.4167], image: '/public/img/ImgMaps/Pando.png', link: '/pando'},
+            { name: 'Potosí', coords: [-19.5833, -65.7500], image: '/public/img/ImgMaps/Potosi.png', link: '/potosi'},
+            { name: 'Chuquisaca', coords: [-19.0333, -65.2600], image: '/public/img/ImgMaps/Sucre.png', link: '/chuquisaca'},
+            //fuera
+            { name: 'India', coords: [29.16679760119323, 75.96709540638025], image: '/public/img/img (8).jpg', link: '/india' }
+        ];
+    
+        // Cargar el GeoJSON
+        fetch('/src/data/tarija.geojson')
+            .then(response => response.json())
+            .then(data => {
+                L.geoJSON(data, {
+                    style: { color: '#2196F3', weight: 2, fillColor: '#64B5F6', fillOpacity: 0.2 }
+                }).addTo(map);
+            });
+        // Cargar el GeoJSON
+        fetch('/src/data/limite_nacional.geojson')
+            .then(response => response.json())
+            .then(data => {
+                L.geoJSON(data, {
+                    style: { color: '#2196F3', weight: 2, fillColor: '#64B5F6', fillOpacity: 0.2 }
+                }).addTo(map);
+            });
+    
+        // Añadir marcadores con popups
+        points.forEach(point => {
+            const marker = L.marker(point.coords).addTo(map);
+            
+            const popupContent = `
+                <div class="custom-popup">
+                    <img src="${point.image}" alt="${point.name}">
+                    <h3 class="title is-5">${point.name}</h3>
+                </div>
+            `;
+    
+            marker.bindPopup(popupContent, { maxWidth: 200 });
+    
+            marker.on('mouseover', function(e) { this.openPopup(); });
+    
+            // Añadir evento de clic para redirigir
+            marker.on('click', function() {
+                window.location.href = point.link; // Cambia 'point.link' por la URL deseada
+            });
+        });
+    </script>
+    
+</MainLayout>

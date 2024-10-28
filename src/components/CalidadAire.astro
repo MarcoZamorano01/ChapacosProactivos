@@ -1,0 +1,291 @@
+---
+import "src/styles/grafico.css";
+import "src/styles/graficoEspecifico.css";
+
+interface Props {
+    apiUrl: string;
+}
+
+const { apiUrl } = Astro.props;
+---
+
+<div class="air-quality-container">
+    <!-- Medidores Específicos -->
+    <section class="section">
+        <div class="container">
+            <h1 class="title has-text-centered has-text-primary">
+                Medidores de Contaminantes
+            </h1><br />
+            <p class="subtitle has-text-centered is-6">
+                Monitoreo en tiempo real de la calidad del aire
+            </p>
+
+            <div class="legend-container">
+                <div class="legend-item">
+                    <span class="legend-color" style="background-color: #63B4B8"
+                    ></span>
+                    <span class="legend-text">Excelente</span>
+                </div>
+                <div class="legend-item">
+                    <span class="legend-color" style="background-color: #A9E4D7"
+                    ></span>
+                    <span class="legend-text">Buena</span>
+                </div>
+                <div class="legend-item">
+                    <span class="legend-color" style="background-color: #D0C7DD"
+                    ></span>
+                    <span class="legend-text">Regular</span>
+                </div>
+                <div class="legend-item">
+                    <span class="legend-color" style="background-color: #664E88"
+                    ></span>
+                    <span class="legend-text">Mala</span>
+                </div>
+                <div class="legend-item">
+                    <span class="legend-color" style="background-color: #4B3869"
+                    ></span>
+                    <span class="legend-text">Muy Mala</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="columns is-multiline">
+            <!-- CO Gauge -->
+            <div class="column is-half-tablet is-one-quarter-desktop">
+                <div class="gauge-card">
+                    <h3 class="gauge-title">Monóxido de Carbono (CO)</h3>
+                    <div id="coGauge" class="gauge-chart"></div>
+                    <div class="gauge-value"></div>
+                    <div class="gauge-quality"></div>
+                </div>
+            </div>
+
+            <!-- NO Gauge -->
+            <div class="column is-half-tablet is-one-quarter-desktop">
+                <div class="gauge-card">
+                    <h3 class="gauge-title">Óxido de Nitrógeno (NO)</h3>
+                    <div id="noGauge" class="gauge-chart"></div>
+                    <div class="gauge-value"></div>
+                    <div class="gauge-quality"></div>
+                </div>
+            </div>
+
+            <!-- NO2 Gauge -->
+            <div class="column is-half-tablet is-one-quarter-desktop">
+                <div class="gauge-card">
+                    <h3 class="gauge-title">Dióxido de Nitrógeno (NO₂)</h3>
+                    <div id="no2Gauge" class="gauge-chart"></div>
+                    <div class="gauge-value"></div>
+                    <div class="gauge-quality"></div>
+                </div>
+            </div>
+
+            <!-- O3 Gauge -->
+            <div class="column is-half-tablet is-one-quarter-desktop">
+                <div class="gauge-card">
+                    <h3 class="gauge-title">Ozono (O₃)</h3>
+                    <div id="o3Gauge" class="gauge-chart"></div>
+                    <div class="gauge-value"></div>
+                    <div class="gauge-quality"></div>
+                </div>
+            </div>
+
+            <!-- SO2 Gauge -->
+            <div class="column is-half-tablet is-one-quarter-desktop">
+                <div class="gauge-card">
+                    <h3 class="gauge-title">Dióxido de Azufre (SO₂)</h3>
+                    <div id="so2Gauge" class="gauge-chart"></div>
+                    <div class="gauge-value"></div>
+                    <div class="gauge-quality"></div>
+                </div>
+            </div>
+
+            <!-- PM2.5 Gauge -->
+            <div class="column is-half-tablet is-one-quarter-desktop">
+                <div class="gauge-card">
+                    <h3 class="gauge-title">PM 2.5</h3>
+                    <div id="pm25Gauge" class="gauge-chart"></div>
+                    <div class="gauge-value"></div>
+                    <div class="gauge-quality"></div>
+                </div>
+            </div>
+
+            <!-- PM10 Gauge -->
+            <div class="column is-half-tablet is-one-quarter-desktop">
+                <div class="gauge-card">
+                    <h3 class="gauge-title">PM 10</h3>
+                    <div id="pm10Gauge" class="gauge-chart"></div>
+                    <div class="gauge-value"></div>
+                    <div class="gauge-quality"></div>
+                </div>
+            </div>
+
+            <!-- NH3 Gauge -->
+            <div class="column is-half-tablet is-one-quarter-desktop">
+                <div class="gauge-card">
+                    <h3 class="gauge-title">Amoníaco (NH₃)</h3>
+                    <div id="nh3Gauge" class="gauge-chart"></div>
+                    <div class="gauge-value"></div>
+                    <div class="gauge-quality"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<!-- Cargar las bibliotecas de gráficos -->
+<script is:inline src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+
+<script define:vars={{ apiUrl }}>
+    // Esperar a que se carguen las bibliotecas y el DOM
+    window.addEventListener("load", async () => {
+        try {
+             // Cargar datos de la API
+            const response = await fetch(apiUrl);
+            const data = await response.json();
+
+            //ESTA ES LA FUNCION PAR IMPLEMENTAR EL LOCALSTORAGE
+            /*
+            localStorage.setItem(new Date().toLocaleDateString(), JSON.stringify(data)); 
+            const data =    JSON.parse(localStorage.getItem('27/10/2024'));*/
+
+            const components = data.list[0].components;
+            const aqi = data.list[0].main.aqi;
+
+            // Función para determinar la calidad del aire
+            const getAirQuality = (aqi) => {
+                const qualities = {
+                    1: { text: "Excelente", color: "#63B4B8" },
+                    2: { text: "Buena", color: "#A9E4D7" },
+                    3: { text: "Regular", color: "#D0C7DD" },
+                    4: { text: "Mala", color: "#664E88" },
+                    5: { text: "Muy Mala", color: "#4B3869" },
+                };
+                return qualities[aqi] || qualities[1];
+            };
+
+            // Configuración base para los gráficos gauge
+            const createGaugeOptions = (title, value, maxValue) => {
+                const quality = getAirQuality(aqi);
+                return {
+                    series: [Math.min((value / maxValue) * 100, 100)],
+                    chart: {
+                        type: "radialBar",
+                        height: 200,
+                        offsetY: -10,
+                        sparkline: {
+                            enabled: true,
+                        },
+                    },
+                    plotOptions: {
+                        radialBar: {
+                            startAngle: -90,
+                            endAngle: 90,
+                            track: {
+                                background: "#e7e7e7",
+                                strokeWidth: "97%",
+                                margin: 5,
+                            },
+                            dataLabels: {
+                                name: { show: false },
+                                value: {
+                                    offsetY: -2,
+                                    fontSize: "16px",
+                                    formatter: function (val) {
+                                        return value.toFixed(2) + " µg/m³";
+                                    },
+                                },
+                            },
+                        },
+                    },
+                    fill: {
+                        colors: [quality.color],
+                    },
+                    labels: [title],
+                };
+            };
+
+            // Configuración para cada medidor con valores máximos adecuados
+            const gaugeConfigs = [
+                {
+                    id: "coGauge",
+                    title: "CO",
+                    value: components.co,
+                    maxValue: 0,
+                },
+                {
+                    id: "noGauge",
+                    title: "NO",
+                    value: components.no,
+                    maxValue: 0,
+                },
+                {
+                    id: "no2Gauge",
+                    title: "NO₂",
+                    value: components.no2,
+                    maxValue: 0,
+                },
+                {
+                    id: "o3Gauge",
+                    title: "O₃",
+                    value: components.o3,
+                    maxValue: 0,
+                },
+                {
+                    id: "so2Gauge",
+                    title: "SO₂",
+                    value: components.so2,
+                    maxValue: 0,
+                },
+                {
+                    id: "pm25Gauge",
+                    title: "PM2.5",
+                    value: components.pm2_5,
+                    maxValue: 0,
+                },
+                {
+                    id: "pm10Gauge",
+                    title: "PM10",
+                    value: components.pm10,
+                    maxValue: 0,
+                },
+                {
+                    id: "nh3Gauge",
+                    title: "NH₃",
+                    value: components.nh3,
+                    maxValue: 0,
+                },
+            ];
+
+            // Crear los medidores
+            gaugeConfigs.forEach((config) => {
+                const element = document.querySelector(`#${config.id}`);
+                if (element) {
+                    const chart = new ApexCharts(
+                        element,
+                        createGaugeOptions(
+                            config.title,
+                            config.value,
+                            config.maxValue,
+                        ),
+                    );
+                    chart.render();
+
+                    const cardElement = element.closest(".gauge-card");
+                    const valueElement =
+                        cardElement.querySelector(".gauge-value");
+                    const qualityElement =
+                        cardElement.querySelector(".gauge-quality");
+
+                    valueElement.textContent = `${config.value.toFixed(2)} µg/m³`;
+                    qualityElement.textContent = getAirQuality(aqi).text;
+                    qualityElement.style.color = getAirQuality(aqi).color;
+                }
+            });
+        } catch (error) {
+            console.error("Error al inicializar los gráficos:", error);
+        }
+    });
+            console.log("🚀 ~ window.addEventListener ~ components:", components)
+            console.log("🚀 ~ window.addEventListener ~ components:", components)
+</script>

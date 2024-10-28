@@ -1,0 +1,32 @@
+:root {
+    --color-primary: #4CBEC5;
+    --color-secondary: #904CC5;
+    --footer-bg: #00d1b2;
+    --font-yellowtail: 'Yellowtail', cursive;
+    --font-space-grotesk: 'Space Grotesk', sans-serif;
+    --font-sriracha: 'Sriracha', cursive;
+}
+
+h1{
+    font-family: var(--font-yellowtail);
+    font-size: 80px;
+    color: var(--color-primary);
+    text-align: center;
+}
+
+@keyframes fadeInUp {
+    0% {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+h1 {
+    animation: fadeInUp 1.5s ease forwards;
+    opacity: 0; /* Comienza oculto */
+}
+

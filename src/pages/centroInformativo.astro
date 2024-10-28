@@ -1,0 +1,232 @@
+---
+import MainLayout from "@/layouts/mainLayout.astro";
+import "src/styles/centroInformativo.css";
+---
+
+<MainLayout>
+
+    <!-- Carousel Section -->
+    <section class="hero is-fullheight carousel-section">
+        <div class="hero-carousel">
+            <div class="carousel-container">
+                <div class="carousel-item active">
+                    <img src="public/img/Carrusel/Calidad del Aire.png" alt="calidadAire">
+                </div>
+                <div class="carousel-item active">
+                    <img src="public/img/Carrusel/Colaboracion.png" alt="colaboracion">
+                </div>
+                <div class="carousel-item active">
+                    <img src="public/img/Carrusel/ConsejosHogar.png" alt="consejo">
+                </div>
+                <div class="carousel-item active">
+                    <img src="public/img/Carrusel/Contaminacion.png" alt="Contaminacion">
+                </div>
+                <div class="carousel-item active">
+                    <img src="public/img/Carrusel/ElForo.png" alt="ElForo">
+                </div>
+                <div class="carousel-item active">
+                    <img src="public/img/Carrusel/Salud.png" alt="Salud">
+                </div>
+            </div>
+            <div class="carousel-controls">
+                <button class="prev-button">❮</button>
+                <div class="carousel-indicators">
+                    <span class="indicator active"></span>
+                    <span class="indicator"></span>
+                    <span class="indicator"></span>
+                </div>
+                <button class="next-button">❯</button>
+            </div>
+        </div>
+    </section>
+        <!-- Botón de Cambio de Idioma -->
+        <button id="boton-cambio-idioma" class="boton-idioma button is-primary is-centered">Cambiar Idioma</button>
+    <!-- Information Columns Section -->
+    <section class="section info-columns">
+        <div class="container">
+            <div class="columns is-centered">
+                <!-- Salud Column -->
+                <div class="column is-one-third">
+                    <div class="info-card">
+                        <h2 class="title is-4 has-text-centered">¿Calidad del Aire?</h2>
+                        <div class="card-image">
+                            <figure class="image">
+                                <img src="/public/img/CentroInformativo/Calidad del Aire.png" alt="Calidad del Aire">
+                            </figure>
+                        </div>
+                        <div class="content">
+                            <p>La calidad del aire se refiere a la cantidad de contaminantes presentes en la atmósfera. Los altos niveles de contaminación pueden afectar la salud respiratoria y cardiovascular. Es fundamental monitorear los índices de calidad del aire para proteger nuestra salud.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Información Column -->
+                <div class="column is-one-third">
+                    <div class="info-card">
+                        <h2 class="title is-4 has-text-centered">Recomendaciones de Salud</h2>
+                        <div class="card-image">
+                            <figure class="image">
+                                <img src="/public/img/CentroInformativo/Recomendaciones de Salud.png" alt="Recomendaciones de Salud">
+                            </figure>
+                        </div>
+                        <div class="content">
+                            <p>Para mantener la salud respiratoria, se recomienda:</p>
+                            <ul>
+                                <li>Evitar actividades al aire libre en días con mala calidad del aire.</li>
+                                <li>Usar mascarillas si es necesario y en entornos contaminados.</li>
+                                <li>Realizar ejercicio en interiores cuando los niveles de contaminación son altos.</li>
+                                <li>Hidratarse adecuadamente y consumir alimentos ricos en antioxidantes.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recomendaciones Column -->
+                <div class="column is-one-third">
+                    <div class="info-card">
+                        <h2 class="title is-4 has-text-centered">Medidas de Seguridad</h2>
+                        <div class="card-image">
+                            <figure class="image">
+                                <img src="/public/img/CentroInformativo/Medidas de Seguridad.png" alt="Medidas de Seguridad">
+                            </figure>
+                        </div>
+                        <div class="content">
+                            <p>Para prevenir enfermedades respiratorias, considera las siguientes medidas:</p>
+                            <ul>
+                                <li>Realiza chequeos médicos regulares.</li>
+                                <li>Evita el contacto con personas enfermas.</li>
+                                <li>Mantén una buena ventilación en el hogar y lugares de trabajo.</li>
+                                <li>Implementa humidificadores si el aire es demasiado seco.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Segunda fila -->
+            <div class="columns is-centered">
+                <!-- Salud Column -->
+                <div class="column is-one-third">
+                    <div class="info-card">
+                        <h2 class="title is-4 has-text-centered">Impacto de la Contaminación</h2>
+                        <div class="card-image">
+                            <figure class="image">
+                                <img src="/public/img/CentroInformativo/Impacto de la Contaminación.png" alt="Impacto de la Contaminación">
+                            </figure>
+                        </div>
+                        <div class="content">
+                            <p>La contaminación del aire puede causar diversas enfermedades, como asma, bronquitis crónica y enfermedades cardiovasculares. Es importante estar informado sobre las condiciones del aire para tomar decisiones informadas.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Información Column -->
+                <div class="column is-one-third">
+                    <div class="info-card">
+                        <h2 class="title is-4 has-text-centered">Consejos para el Hogar</h2>
+                        <div class="card-image">
+                            <figure class="image">
+                                <img src="/public/img/CentroInformativo/Consejos para el Hogar.png" alt="Consejos para el Hogar">
+                            </figure>
+                        </div>
+                        <div class="content">
+                            <p>Para mejorar la calidad del aire en el hogar:</p>
+                            <ul>
+                                <li>Mantén las ventanas abiertas para la ventilación.</li>
+                                <li>Evita fumar en interiores.</li>
+                                <li>Usa productos de limpieza ecológicos.</li>
+                                <li>Planta vegetación que purifique el aire.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recomendaciones Column -->
+                <div class="column is-one-third">
+                    <div class="info-card">
+                        <h2 class="title is-4 has-text-centered">Enfermedades Respiratorias</h2>
+                        <div class="card-image">
+                            <figure class="image">
+                                <img src="/public/img/CentroInformativo/Síntomas de Enfermedades Respiratorias.png" alt="Síntomas de Enfermedades Respiratorias">
+                            </figure>
+                        </div>
+                        <div class="content">
+                            <p>Los síntomas comunes de enfermedades respiratorias incluyen:</p>
+                            <ul>
+                                <li>Tos persistente.</li>
+                                <li>Dificultad para respirar.</li>
+                                <li>Dolor en el pecho.</li>
+                                <li>Fatiga inusual.</li>
+                            </ul>
+                            <p>Si experimentas estos síntomas, consulta a un profesional de la salud.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tercera fila -->
+            <div class="columns is-centered">
+                <!-- Salud Column -->
+                <div class="column is-one-third">
+                    <div class="info-card">
+                        <h2 class="title is-4 has-text-centered">Recursos Adicionales</h2>
+                        <div class="card-image">
+                            <figure class="image">
+                                <img src="/public/img/CentroInformativo/Recursos Adicionales.png" alt="Recursos Adicionales">
+                            </figure>
+                        </div>
+                        <div class="content">
+                            <p>Para más información sobre la calidad del aire y la salud respiratoria, visita los siguientes recursos:</p>
+                            <ul>
+                                <li><a href="https://www.who.int/es" target="_blank">Organización Mundial de la Salud (OMS)</a></li>
+                                <li><a href="https://www.epa.gov/air-quality" target="_blank">Agencia de Protección Ambiental (EPA)</a></li>
+                                <li><a href="https://www.cdc.gov/air/quality.html" target="_blank">Centros para el Control y la Prevención de Enfermedades (CDC)</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Información Column -->
+                <div class="column is-one-third">
+                    <div class="info-card">
+                        <h2 class="title is-4 has-text-centered">Beneficios de un Aire Limpio</h2>
+                        <div class="card-image">
+                            <figure class="image">
+                                <img src="/public/img/CentroInformativo/Beneficios de un Aire Limpio.png" alt="Beneficios de un Aire Limpio">
+                            </figure>
+                        </div>
+                        <div class="content">
+                            <p>Tener un aire limpio es esencial para la salud. Los beneficios incluyen:</p>
+                            <ul>
+                                <li>Mejor salud respiratoria y cardiovascular.</li>
+                                <li>Mayor bienestar general.</li>
+                                <li>Reducción de enfermedades relacionadas con la contaminación.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recomendaciones Column -->
+                <div class="column is-one-third">
+                    <div class="info-card">
+                        <h2 class="title is-4 has-text-centered">Ejercicio y Salud Respiratoria</h2>
+                        <div class="card-image">
+                            <figure class="image">
+                                <img src="/public/img/CentroInformativo/Ejercicio y Salud Respiratoria.png" alt="Ejercicio y Salud Respiratoria">
+                            </figure>
+                        </div>
+                        <div class="content">
+                            <p>La actividad física regular puede mejorar la salud respiratoria. Considera:</p>
+                            <ul>
+                                <li>Realizar ejercicios de respiración.</li>
+                                <li>Optar por ejercicios suaves en interiores.</li>
+                                <li>Incorporar estiramientos y yoga.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</MainLayout>
+<script src="/src/js/centroInformativo.js"></script>

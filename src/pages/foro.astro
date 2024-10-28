@@ -1,0 +1,94 @@
+---
+import MainLayout from "@/layouts/mainLayout.astro";
+import "src/styles/foro.css";
+---
+
+<MainLayout>
+    <section class="section">
+        <div class="container">
+            <h2 class="title has-text-centered">Foro: ¿Por qué colaborar con la plantación de árboles?</h2>
+            
+            <div class="responses" id="responseContainer">
+                <h3 class="subtitle">Respuestas de otros usuarios:</h3>
+                <div class="box response">
+                    <img src="public/img/PerfilFotos/juan.png" alt="Perfil de Juan Pérez" class="profile-img">
+                    <div>
+                        <strong>Juan Pérez:</strong>
+                        <p class="respuesta">Colaborar con la plantación de árboles no solo mejora el medio ambiente, sino que también nos brinda sombra y reduce el calor en nuestras ciudades.</p>
+                    </div>
+                </div>
+                <div class="box response">
+                    <img src="public/img/PerfilFotos/maria.png" alt="Perfil de María Gómez" class="profile-img">
+                    <div>
+                        <strong>María Gómez:</strong>
+                        <p class="respuesta">Es fundamental plantar árboles, ya que son el hogar de muchas especies y ayudan a purificar el aire que respiramos.</p>
+                    </div>
+                </div>
+                <div class="box response">
+                    <img src="public/img/PerfilFotos/carlos.png" alt="Perfil de Carlos López" class="profile-img">
+                    <div>
+                        <strong>Carlos López:</strong>
+                        <p class="respuesta">Un árbol puede vivir más de cien años, así que cada árbol que plantemos es una inversión para las futuras generaciones.</p>
+                    </div>
+                </div>
+                <div class="box response">
+                    <img src="public/img/PerfilFotos/lucia.png" alt="Perfil de Lucía Fernández" class="profile-img">
+                    <div>
+                        <strong>Lucía Fernández:</strong>
+                        <p class="respuesta">La reforestación ayuda a combatir el cambio climático, y cada pequeño esfuerzo cuenta. ¡Hagámoslo juntos!</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Vista previa del mensaje -->
+            <div id="preview" class="box response" style="display: none;">
+                <img id="previewAvatar" class="profile-img" alt="Avatar">
+                <div>
+                    <strong id="previewName"></strong>:
+                    <p id="previewMessage" class="respuesta"></p>
+                </div>
+            </div>
+        </div>
+
+        <br>
+
+        <div class="box">
+            <div class="field">
+                <label class="label">Selecciona tu Avatar</label>
+                <div class="control avatar-selection">
+                    <img src="public/img/PerfilFotos/juan.png" alt="Avatar Juan" onclick="setAvatar('public/img/PerfilFotos/juan.png', this)">
+                    <img src="public/img/PerfilFotos/maria.png" alt="Avatar María" onclick="setAvatar('public/img/PerfilFotos/maria.png', this)">
+                    <img src="public/img/PerfilFotos/carlos.png" alt="Avatar Carlos" onclick="setAvatar('public/img/PerfilFotos/carlos.png', this)">
+                    <img src="public/img/PerfilFotos/lucia.png" alt="Avatar Lucía" onclick="setAvatar('public/img/PerfilFotos/lucia.png', this)">
+                </div>
+            </div>
+
+            <div class="field">
+                <label class="label">Tu Nombre</label>
+                <div class="control">
+                    <input id="userName" class="input" type="text" placeholder="Escribe tu nombre">
+                </div>
+            </div>
+
+            <div class="field">
+                <label class="label">Tu Mensaje</label>
+                <div class="control">
+                    <textarea id="userMessage" class="textarea" placeholder="Escribe tu mensaje aquí..."></textarea>
+                </div>
+            </div>
+
+            <div class="buttons">
+                <button id="sendBtn" class="button is-primary">Enviar</button>
+                <button id="cancelBtn" class="button is-light">Cancelar</button>
+            </div>
+        </div>
+    </section>
+</MainLayout>
+
+<script>
+    function setAvatar(avatarUrl) {
+        console.log("Avatar seleccionado:", avatarUrl);
+    }
+</script>
+
+<script src="/src/js/foro.js"></script>

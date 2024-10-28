@@ -1,0 +1,13 @@
+---
+import MainLayout from "@/layouts/mainLayout.astro";
+import AirQualityCharts from "@/components/CalidadAire.astro";
+import "src/styles/graficoTexto.css";
+
+const apiUrl =
+    "https://api.openweathermap.org/data/2.5/air_pollution?lat=-16.5000&lon=-68.1193&appid=284ea7c439250f0d65037a7487873e3f";
+---
+
+<MainLayout>
+    <h1>La Paz</h1>
+    <AirQualityCharts apiUrl={apiUrl} />
+</MainLayout>

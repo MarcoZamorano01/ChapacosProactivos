@@ -1,16 +1,85 @@
 ---
-
+import MainLayout from "@/layouts/mainLayout.astro";
+import "src/styles/index.css";
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<MainLayout>
+    <section class="hero is-fullheight hero-background">
+        <div class="hero-body">
+            <div class="container has-text-centered">
+                <h1 class="title1">Chapacos Proactivos</h1>
+                <h2 class="subtitle">Aprende Infórmate Socializa</h2>
+                <p class="mensaje">
+                    Bienvenido a la plataforma Web de Chapacos Proactivos. En
+                    esta web podrás informarte, aprender y socializar con todo
+                    lo referente a la contaminación atmosférica.
+                </p>
+                <br />
+                <div class="buttons is-centered">
+                    <a href="/centroAyuda" class="button is-primary" title="Apoyo">Apoyar</a>
+                    <a href="https://www.youtube.com/" class="button is-light fa-brands fa-youtube" title="Video">
+                        Mirar el video
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="section">
+        <div class="container">
+            <h2 class="title has-text-centered">
+                Descubre lo que tenemos para ti!
+            </h2>
+            <p class="mensaje">
+                Tenemos distintas funciones para ofrecerte: Ver la Calidad del
+                Aire, Centro Informativo, Centro de Ayuda y Foros
+            </p>
+            <br />
+            <section class="hero is-fullheight carousel-section">
+                <div class="hero-carousel">
+                    <div class="carousel-container">
+                        <div class="carousel-item active">
+                            <a href="/centroInformativo" title="CentroInformativo">
+                                <img src="public/img/Carrusel/Calidad del Aire.png" alt="calidadAire" title="Calidad del aire">
+                            </a>
+                        </div>
+                        <div class="carousel-item">
+                            <a href="/centroInformativo" title="CentroInformativo">
+                                <img src="public/img/Carrusel/Colaboracion.png" alt="colaboracion" title="Colaboracion ">
+                            </a>
+                        </div>
+                        <div class="carousel-item">
+                            <a href="/centroInformativo" title="CentroInformativo">
+                                <img src="public/img/Carrusel/ConsejosHogar.png" alt="consejo" title="Consejos Hogar">
+                            </a>
+                        </div>
+                        <div class="/centroInformativo">
+                            <a href="contaminacion.html" title="CentroInformativo">
+                                <img src="public/img/Carrusel/Contaminacion.png" alt="Contaminacion" title="Contaminacion">
+                            </a>
+                        </div>
+                        <div class="/centroInformativo">
+                            <a href="foro.html" title="foro">
+                                <img src="public/img/Carrusel/ElForo.png" alt="ElForo" title="Foro" >
+                            </a>
+                        </div>
+                        <div class="/centroInformativo">
+                            <a href="salud.html" title="salud">
+                                <img src="public/img/Carrusel/Salud.png" alt="Salud" title="Salud">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="carousel-controls">
+                        <button class="prev-button">❮</button>
+                        <div class="carousel-indicators">
+                            <span class="indicator active"></span>
+                            <span class="indicator"></span>
+                            <span class="indicator"></span>
+                        </div>
+                        <button class="next-button">❯</button>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </section>
+    <script src="/src/js/index.js"></script>
+</MainLayout>

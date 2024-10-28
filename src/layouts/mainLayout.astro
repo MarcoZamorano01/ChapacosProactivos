@@ -1,0 +1,33 @@
+---
+import Header from '@/components/Header.astro';
+import Footer from '@/components/Footer.astro';
+---
+
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Chapacos Proactivos</title>
+    <meta name="description" content="Mapa interactivo de Tarija con puntos de interés">
+    <!-- Favicon -->
+    <link rel="icon" href="/public/img/Iconos/Logo Blanco Solo.ico" type="image/x-icon">
+    <!-- Css Especiales Bulma -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+    <!-- Validador Ajax -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Mapas -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <!-- Fuentes Especiales -->
+    <link href='https://fonts.googleapis.com/css?family=Yellowtail' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Space+Grotesk' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Yellowtail|Space+Grotesk|Sriracha' rel='stylesheet'>
+    <!-- Graficos -->
+</head>
+<body>
+    <Header />
+    <main>
+        <slot />
+    </main>
+    <Footer />
+</body>
+</html>

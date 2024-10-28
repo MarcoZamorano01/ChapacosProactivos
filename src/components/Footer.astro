@@ -1,0 +1,63 @@
+---
+// src/components/Footer.astro
+---
+<footer class="footer is-primary fade-in">
+    <div class="content has-text-centered">
+        <div class="columns">
+            <div class="column">
+                <a href="https://www.facebook.com/" class="social-icon"><i class="fab fa-facebook"></i></a>
+                <a href="https://x.com/home?lang=es" class="social-icon"><i class="fab fa-twitter"></i></a>
+                <a href="https://www.instagram.com/?hl=es" class="social-icon"><i class="fab fa-instagram"></i></a>
+            </div>
+            <div class="column">
+                <a href="/" class="footer-link">Inicio</a>
+                <a href="/sobreNosotros" class="footer-link">Sobre nosotros</a>
+                <a href="/objetivos" class="footer-link">Objetivos</a>
+                <a href="https://wa.me/525512345678" class="footer-link">Info</a>
+            </div>
+            <div class="column">
+                <img src="public/img/Logos/Logo Blanco.png" alt="Chapacos Proactivos Logo" title="Logo">
+            </div>
+        </div>
+        <p>&copy; 2024 | Chapacos Proactivos</p>
+    </div>
+</footer>
+
+<style>
+.footer {
+    background-color: #00d1b2; /* Color del pie de página */
+    opacity: 0; /* Inicialmente oculto para el efecto de fade-in */
+    animation: fadeIn 1s forwards; /* Animación de desvanecimiento */
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1; /* Finaliza completamente visible */
+    }
+}
+
+.footer .column {
+    padding: 1rem; /* Ajusta este valor según lo que necesites */
+}
+
+.footer a {
+    color: white; /* Color de los enlaces */
+    margin: 5px; /* Espacio exterior */
+    transition: color 0.3s, transform 0.3s; /* Transiciones suaves para el color y el efecto de rebote */
+}
+
+.footer a:hover {
+    color: #904CC5; /* Color al pasar el cursor sobre los enlaces */
+    transform: scale(1.1); /* Efecto de rebote */
+}
+
+.footer i {
+    font-size: 2rem; /* Tamaño de los íconos */
+    margin: 10px; /* Espacio exterior */
+    transition: color 0.5s; /* Transición suave para el color de los íconos */
+}
+
+.footer i:hover {
+    color: #904CC5; /* Color al pasar el cursor sobre los íconos */
+}
+</style>

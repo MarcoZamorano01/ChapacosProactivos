@@ -1,0 +1,86 @@
+---
+import MainLayout from "@/layouts/mainLayout.astro";
+import "src/styles/formularioPago.css";
+---
+
+<MainLayout>
+    <div class="container my-6">
+        <div class="box payment-form" id="paymentForm">
+            <h1 class="title is-4 mb-5">Escoge tu medio de colaboración</h1>
+            
+            <!-- Tarjeta Existente -->
+            <div class="card mb-4">
+                <div class="card-content">
+                    <div class="is-flex is-align-items-center is-justify-content-space-between">
+                        <div>
+                            <p>Débito</p>
+                            <p>****6789</p>
+                        </div>
+                        <div class="is-flex">
+                            <img src="/public/img/Iconos/MasterCard_Logo.png" alt="Mastercard" class="payment-icon">
+                            <img src="/public/img/Iconos/Visa_Logo.png" alt="Visa" class="payment-icon">
+                            <img src="/public/img/Iconos/American_Express-Logo.png" alt="American Express" class="payment-icon">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Formulario Nueva Tarjeta -->
+            <div class="box has-background-light">
+                <h2 class="subtitle is-6 mb-4">Agregar Tarjeta Débito/Crédito</h2>
+                <form id="cardForm">
+                    <div class="field">
+                        <label class="label">Nombre del titular</label>
+                        <div class="control">
+                            <input class="input" type="text" required>
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <label class="label">Número de tarjeta</label>
+                        <div class="control">
+                            <input class="input" type="text" maxlength="19" id="cardNumber" required>
+                        </div>
+                    </div>
+
+                    <div class="columns">
+                        <div class="column">
+                            <div class="field">
+                                <label class="label">Fecha de vencimiento</label>
+                                <div class="control">
+                                    <input class="input" type="text" placeholder="MM/YY" maxlength="5" id="expDate" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="column">
+                            <div class="field">
+                                <label class="label">CVV</label>
+                                <div class="control">
+                                    <input class="input" type="text" maxlength="4" required>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="box info-pago mt-5">
+                        <h3 class="subtitle is-6 mb-3">Información de pago</h3>
+                        <div class="is-flex is-justify-content-space-between mb-2">
+                            <span>Apoyo a organización</span>
+                            <span>$1000</span>
+                        </div>
+                        <hr class="my-2">
+                        <div class="is-flex is-justify-content-space-between has-text-weight-bold">
+                            <span>Total</span>
+                            <span>$1000</span>
+                        </div>
+                    </div>
+
+                    <a href="/comprobante" class="button is-primary is-fullwidth mt-5">
+                        Continuar
+                    </a>
+                </form>
+            </div>
+        </div>
+    </div>
+</MainLayout>
+<script src="/src/js/formularioPago.js"></script>

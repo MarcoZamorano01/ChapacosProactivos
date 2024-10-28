@@ -1,0 +1,74 @@
+
+.title {
+    color: #4CBEC5;
+    font-family: Yellowtail;
+    font-size: 70px;
+}
+
+.subtitle {
+    color: #904CC5;
+    font-family: Yellowtail;
+    font-size: 40px;
+}
+
+
+.respuesta{
+    color: black;
+}
+
+/*para imagenes de perfiles de usuario*/
+.profile-img {
+    width: 60px; /* Ancho de la imagen */
+    height: 60px; /* Alto de la imagen */
+    border-radius: 50%; /* Hace que la imagen sea circular */
+    margin-right: 10px; /* Espacio entre la imagen y el texto */
+    display: inline-block; /* Asegura que la imagen se alinee con el texto */
+}
+.response {
+    display: flex; /* Utiliza flexbox para alinear la imagen y el texto */
+    align-items: center; /* Centra verticalmente el contenido */
+}
+
+.avatar-selection img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+
+/*animacion*/
+@keyframes slideIn {
+    0% {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.response {
+    animation: slideIn 2s ease forwards;
+    opacity: 0; /* Comienza oculto */
+    margin-bottom: 1rem; /* Espaciado entre respuestas */
+}
+
+
+@keyframes fadeInUp {
+    0% {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.title, .subtitle {
+    animation: fadeInUp 0.5s ease forwards;
+    opacity: 0; /* Comienza oculto */
+}

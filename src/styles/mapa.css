@@ -1,0 +1,83 @@
+/* index.css */
+
+/* Variables de color y fuentes */
+:root {
+    --color-primary: #4CBEC5;
+    --color-secondary: #904CC5;
+    --footer-bg: #00d1b2;
+    --font-yellowtail: 'Yellowtail', cursive;
+    --font-space-grotesk: 'Space Grotesk', sans-serif;
+    --font-sriracha: 'Sriracha', cursive;
+}
+
+body {
+    margin: 0;
+}
+
+.title {
+    color: var(--color-primary);
+    font-family: var(--font-yellowtail);
+    font-size: 60px;
+}
+
+.title1, .subtitle {
+    color: var(--color-primary);
+    font-family: var(--font-yellowtail);
+}
+
+.title1 {
+    font-size: 120px;
+}
+
+.subtitle {
+    font-family: var(--font-space-grotesk);
+    font-size: 80px;
+}
+
+.mensaje {
+    color: var(--color-secondary);
+    font-family: var(--font-sriracha);
+    font-size: 30px;
+    text-align: center;
+}
+
+.hero-body {
+    background-image: url('/public/img/BoliviaMapa.png'); /* Ruta de la imagen */
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat; 
+}
+
+
+.map-container {
+    height: 600px;
+    width: 100%;
+    border-radius: 6px;
+}
+
+.custom-popup {
+    text-align: center;
+}
+
+.custom-popup img {
+    justify-content: center;
+    align-items: center;
+    max-width: 100px;
+    margin-bottom: 10px;
+}
+
+@keyframes fadeInUp {
+    0% {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.title, .title1, .subtitle, .mensaje {
+    animation: fadeInUp 1.5s ease forwards;
+    opacity: 0; /* Comienza oculto */
+}

@@ -1,0 +1,166 @@
+---
+---
+<header>
+    <nav class="navbar is-primary">
+        <a class="navbar-item" href="/"  title="principo">
+            <img
+                src="public/img/Logos/Logo Blanco.png"
+                alt="Logo Chapacos Proactivos"
+                class="logoHead"
+                title="Logo"
+            />
+        </a>
+        <!-- Botón hamburguesa para móviles -->
+        <div class="navbar-burger" id="burger" aria-label="menu" aria-expanded="false">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </div>
+
+        <div id="navbarMenu" class="navbar-menu">
+            <div class="navbar-end">
+                <div class="navbar-item has-dropdown is-hoverable">
+                    <a class="navbar-link">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </a>
+                    <div class="navbar-dropdown is-right">
+                        <a class="navbar-item" href="/bermejo">Bermejo</a>
+                        <a class="navbar-item" href="/carapari">Carapari</a>
+                        <a class="navbar-item" href="/elPalmar">El Palmar</a>
+                        <a class="navbar-item" href="/elPuente">El Puente</a>
+                        <a class="navbar-item" href="/entreRios">Entre Rios</a>
+                        <a class="navbar-item" href="/sanLorenzo">San Lorenzo</a>
+                        <a class="navbar-item" href="/tarija">Tarija</a>
+                        <a class="navbar-item" href="/uriondo">Uriondo</a>
+                        <a class="navbar-item" href="/villaMontes">Villa Montes</a>
+                        <hr class="navbar-divider" />
+                        <div class="navbar-item">
+                            Localidades del departamento de Tarija
+                        </div>
+                    </div>
+                </div>
+                <div class="navbar-item has-dropdown is-hoverable">
+                    <a class="navbar-link">
+                        <i class="fa-solid fa-grip-lines"></i>
+                    </a>
+                    <div class="navbar-dropdown is-right">
+                        <a class="navbar-item" href="/centroAyuda">Centro Ayuda</a>
+                        <a class="navbar-item" href="/centroInformativo">Centro Informativo</a>
+                        <a class="navbar-item" href="/foro">Foro</a>
+                        <a class="navbar-item" href="/mapa">Mapa</a>
+                        <hr class="navbar-divider" />
+                        <div class="navbar-item">Funciones que ofrecemos</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <style>
+        .navbar {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            opacity: 0; /* Inicialmente oculto para el efecto de fade-in */
+            animation: fadeIn 2s forwards; /* Animación de desvanecimiento */
+        }
+
+        @keyframes fadeIn {
+    to {
+        opacity: 1; /* Finaliza completamente visible */
+    }
+}
+
+        .navbar-item {
+            padding: 1rem;
+        }
+
+        .navbar-link i {
+            font-size: 1.5rem;
+        }
+
+        /* Estilos del botón hamburguesa */
+        .navbar-burger {
+            display: none;
+            cursor: pointer;
+        }
+
+        .navbar-burger span {
+            display: block;
+            width: 25px;
+            height: 3px;
+            margin: 5px auto;
+            background-color: white;
+        }
+
+        @media (max-width: 768px) {
+            .navbar-burger {
+                display: block;
+            }
+
+            .navbar-menu {
+                display: none; /* Oculta el menú por defecto */
+            }
+
+            .navbar-menu.active {
+                display: flex; /* Cambia a flex cuando esté activo */
+                flex-direction: column; /* Orientación vertical */
+                width: 100%; /* Ancho completo */
+                background-color: #f5f5f5; /* Fondo para mejorar visibilidad */
+            }
+
+            .navbar-item {
+                flex-basis: 100%; /* Ocupa el ancho completo */
+                text-align: center; /* Centra el texto */
+                margin: 0.5rem 0; /* Añade margen para evitar superposición */
+            }
+
+            .navbar-item a {
+                padding: 1rem; /* Añade padding a los enlaces */
+                color: #363636; /* Color del texto */
+                background-color: #fff; /* Fondo para cada ítem */
+                border-radius: 5px; /* Bordes redondeados para estética */
+                box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.1); /* Sombra suave */
+            }
+
+            .navbar-dropdown {
+                position: static; /* Asegura que el dropdown se muestre debajo */
+            }
+
+            /* Ocultar los dropdowns por defecto */
+            .navbar-item.has-dropdown .navbar-dropdown {
+                display: none;
+            }
+
+            /* Mostrar el dropdown solo cuando esté activo */
+            .navbar-item.has-dropdown.is-active .navbar-dropdown {
+                display: block;
+            }
+
+            .navbar-item.has-dropdown:hover .navbar-dropdown {
+                display: block; /* Muestra dropdowns al hacer clic en móviles */
+            }
+        }
+    </style>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+    const burger = document.querySelector('#burger');
+    const navbarMenu = document.querySelector('#navbarMenu');
+    const dropdowns = document.querySelectorAll('.navbar-item.has-dropdown');
+
+    // Alternar el menú principal en móviles
+    burger.addEventListener('click', () => {
+        navbarMenu.classList.toggle('active');
+    });
+
+    // Agregar funcionalidad para dropdowns en dispositivos móviles
+    dropdowns.forEach(dropdown => {
+        const navbarLink = dropdown.querySelector('.navbar-link');
+        navbarLink.addEventListener('click', () => {
+            dropdown.classList.toggle('is-active');
+        });
+    });
+});
+    </script>
+</header>

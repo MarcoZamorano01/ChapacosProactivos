@@ -1,0 +1,47 @@
+/* styles/payment.css */
+
+.payment-icon {
+    height: 24px;
+    margin-left: 8px;
+  }
+  
+  .transaction-receipt {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  
+  .payment-form {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  
+  .info-pago {
+    background-color: #f8f9fa;
+  }
+  
+  .content hr {
+    background-color: #dbdbdb;
+    height: 1px;
+    margin: 1rem 0;
+  }
+  
+  .icon.is-large i {
+    font-size: 3rem;
+  }
+  
+  .payment-form input:focus {
+    border-color: #485fc7;
+    box-shadow: 0 0 0 0.125em rgba(72, 95, 199, 0.25);
+  }
+  
+  .payment-form .box.has-background-light {
+    background-color: #f5f5f5;
+  }
+  
+  .transaction-receipt .content {
+    color: #4a4a4a;
+  }
+  
+  .transaction-receipt .buttons {
+    gap: 1rem;
+  }
